@@ -217,6 +217,7 @@ TExposicion obtenerNesimaExposicionTListaExposiciones(TListaExposiciones listaEx
     int aux = 1;
     while (aux < n){
         listaExpo = listaExpo->sig;
+        aux++;
     }
     return listaExpo->exposicion;
 }
