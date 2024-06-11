@@ -7,6 +7,7 @@ struct rep_visitante {
     char nombre[MAX_NOMBRE];
     char apellido[MAX_APELLIDO]; 
     int edad;
+    TConjuntoPiezas piezasfav;
 };
 
 // Función que retorna el nombre de la visitante
@@ -49,12 +50,14 @@ TVisitante crearTVisitante(int id, const char nombre[MAX_NOMBRE], const char ape
     nuevoVisitante->edad = edad;
     strcpy(nuevoVisitante->nombre, nombre);
     strcpy(nuevoVisitante->apellido, apellido);
+    nuevoVisitante->piezasfav = crearTConjuntoPiezas(MAX_PIEZAS);
     return nuevoVisitante;    
 }
 
 
 // Función que libera la memoria asignada para un visitante
 void liberarTVisitante(TVisitante &visitante){
+    liberarTConjuntoPiezas(visitante->piezasfav);
     delete visitante;
     visitante = NULL;
 }
@@ -63,13 +66,14 @@ void liberarTVisitante(TVisitante &visitante){
 // Agrega una pieza a las piezas favoritas del visitante.
 // Ejecuta en O(1) peor caso.
 void agregarPiezaFavoritaTVisitante(TVisitante visitante, int idPieza){
+    insertarTConjuntoPiezas(visitante->piezasfav,idPieza);
 }
  
 // Devuelve la instancia de TConjuntoPiezas que indica las piezas
 // favoritas del visitante.
 // Ejecuta en O(1) peor caso.
 TConjuntoPiezas obtenerPiezasFavoritasTVisitante(TVisitante visitante){
-    return NULL;
+    return visitante->piezasfav;
 }
 
 
