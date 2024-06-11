@@ -205,9 +205,18 @@ TListaExposiciones unirListaExposiciones(TListaExposiciones listaExpo1, TListaEx
 
 
 int cantidadExposicionesTListaExposiciones(TListaExposiciones listaExpo){
-    return 0;
+    int cant = 0;
+    while (listaExpo != NULL){
+        listaExpo = listaExpo->sig;
+        cant++;
+    }
+    return cant;
 }
 
 TExposicion obtenerNesimaExposicionTListaExposiciones(TListaExposiciones listaExpo, int n){
-    return NULL;
+    int aux = 1;
+    while (aux < n){
+        listaExpo = listaExpo->sig;
+    }
+    return listaExpo->exposicion;
 }
