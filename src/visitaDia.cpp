@@ -57,9 +57,9 @@ void liberarTVisitaDia(TVisitaDia &visitaDia){
       liberarTGrupoABB(visitaDia->cola[i]);
     }
   }
-  delete[] visitaDia->cola;
+  delete visitaDia->cola;
   liberarTFecha(visitaDia->fecha);
-  delete[] visitaDia;
+  delete visitaDia;
   visitaDia = NULL;
 }
 
