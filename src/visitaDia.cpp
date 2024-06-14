@@ -64,7 +64,7 @@ void imprimirTVisitaDia(TVisitaDia visitaDia){
     }
 
     for (int i = inicio; i<= final; i++){
-      printf("%d) Grupo %d con edad promedio %.2f\n", i,i, edadPromedioTGrupoABB(visitaDia->cola[i]));
+      printf("%d) Grupo %d con edad promedio %.2f\n", i,idGrupo(visitaDia->cola[i]), edadPromedioTGrupoABB(visitaDia->cola[i]));
       imprimirTGrupoABB(visitaDia->cola[i]);
     }
     inicio = inicio*2;
