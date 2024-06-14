@@ -23,7 +23,7 @@ TVisitaDia crearTVisitaDia(TFecha fecha, int N){
 }
 
 void filtradoAscendente(int pos, TVisitaDia &visita){
-  while (pos > 1 && edadPromedioTGrupoABB(visita->cola[pos]) > edadPromedioTGrupoABB(visita->cola[pos/2])){
+  while (pos > 1 && edadPromedioTGrupoABB(visita->cola[pos]) <= edadPromedioTGrupoABB(visita->cola[pos/2])){
     TGrupoABB aux = visita->cola[pos];
     visita->cola[pos] = visita->cola[pos/2];
     visita->cola[pos/2] = aux;
@@ -38,6 +38,8 @@ void encolarGrupoTVisitaDia(TVisitaDia &visita, TGrupoABB grupo){
     filtradoAscendente(visita->cant + 1, visita);
     visita->cant++;
   }
+
+  //AGREGAR AL ARREGLO AUX
 }
 
 int cantidadGruposTVisitaDia(TVisitaDia visitaDia){
