@@ -80,7 +80,7 @@ TGrupoABB masPrioritarioTVisitaDia(TVisitaDia visita){
 
 
 int maxGruposTVisitaDia(TVisitaDia visita){
-  return visita->max+1;
+  return visita->max;
 }
 
 TFecha fechaTVisitaDia(TVisitaDia visitaDia){
