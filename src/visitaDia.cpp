@@ -54,7 +54,7 @@ void imprimirTVisitaDia(TVisitaDia visitaDia){
   int inicio = 1;
   int nivel = 1;
   while (inicio <= visitaDia->cant){
-    printf("Nivel %d\n", nivel);
+    printf("\nNivel %d\n", nivel);
     
     int final;
     if (inicio*2 - 1 <= visitaDia->cant){
