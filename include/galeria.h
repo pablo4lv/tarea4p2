@@ -9,9 +9,9 @@
     - Una lista de exposiciones activas.
     - Una lista de exposiciones futuras.
 
-    - Una instancia de coleccionTGrupos para manejar los grupos
     - Una instancia de visitaDia para manejar los grupos que van llegando a la galería.
-
+    - Una instancia de hashVisitaDia para manejar las visitasDia históricas.
+    
   Laboratorio de Programación 2.
   InCo-FIng-UDELAR
  */

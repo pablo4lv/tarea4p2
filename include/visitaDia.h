@@ -19,7 +19,7 @@ typedef struct rep_visitadia *TVisitaDia;
 // Función para crear un elemento de tipo TVisitaDia.
 // fecha es la fecha de la visita y N el id máximo que tendrá un grupo
 // 0 < id <= N
-// La función es O(1) peor caso.
+// La función es O(N) peor caso.
 TVisitaDia crearTVisitaDia(TFecha fecha, int N);
 
 // Agrega un grupo a la visita según la prioridad dada por su edad promedio.
@@ -32,11 +32,15 @@ void encolarGrupoTVisitaDia(TVisitaDia &visitaDia, TGrupoABB grupo);
 int cantidadGruposTVisitaDia(TVisitaDia visitaDia);
 
 // Imprime la visita dia con el siguiente formato: 
-//   Visita para dia: <fecha>
-//   <imprimir secuencialmente con imprimirTGrupoABB en cada grupo>
-// La impresión se hace por niveles del árbol separando cada nivel 
-// con un salto de línea. Se sugiere ver los test correspondientes si tiene
-// dudas sobre el formato
+//      Visita para dia: <fecha>
+// Luego, la impresión se hace por niveles del árbol (heap), separando cada nivel 
+// con un salto de línea y antecediéndolo con una línea que diga:
+//      Nivel <i>
+// Finalmente, para cada grupo en el nivel, se imprime:
+//      <j>) Grupo <j> con edad promedio <edad promedio> 
+//      <imprimirTGrupoABB>
+// Se sugiere ver los test correspondientes si tiene
+// dudas sobre el formato.
 // Dada una cantidad máxima de visitantes por grupo fija la funcion es
 // O(n), donde n es el máximo número de grupos en la visita dia
 void imprimirTVisitaDia(TVisitaDia visitaDia);
