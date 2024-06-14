@@ -16,6 +16,7 @@ TVisitaDia crearTVisitaDia(TFecha fecha, int N){
   nuevo->ids = new int[N+1];
   for (int i = 0; i <= N; i++){
     nuevo->ids[i] = 0;
+    nuevo->cola[i] = NULL;
   }
   nuevo->fecha = fecha;
   return nuevo;
