@@ -5,7 +5,7 @@ struct rep_visitadia{
   int max;
   int cant;
   TGrupoABB *cola;
-  int *ids;
+  TGrupoABB *ids;
 };
 
 TVisitaDia crearTVisitaDia(TFecha fecha, int N){
@@ -13,9 +13,9 @@ TVisitaDia crearTVisitaDia(TFecha fecha, int N){
   nuevo->max = N;
   nuevo->cant = 0;
   nuevo->cola = new TGrupoABB[N+1];
-  nuevo->ids = new int[N+1];
+  nuevo->ids = new TGrupoABB[N+1];
   for (int i = 0; i <= N; i++){
-    nuevo->ids[i] = 0;
+    nuevo->ids[i] = NULL;
     nuevo->cola[i] = NULL;
   }
   nuevo->fecha = fecha;
@@ -37,8 +37,8 @@ void encolarGrupoTVisitaDia(TVisitaDia &visita, TGrupoABB grupo){
     visita->cola[visita->cant + 1] = grupo;
     filtradoAscendente(visita->cant + 1, visita);
     visita->cant++;
+    visita->ids[idGrupo(grupo)] = grupo;
 
-    visita->ids[idGrupo(grupo)] = 1;
   }
 }
 
@@ -54,7 +54,7 @@ void imprimirTVisitaDia(TVisitaDia visitaDia){
   int inicio = 1;
   int nivel = 1;
   while (inicio <= visitaDia->cant){
-    printf("\nNivel %d\n", nivel);
+    printf("\n Nivel %d\n", nivel);
     
     int final;
     if (inicio*2 - 1 <= visitaDia->cant){
@@ -93,15 +93,15 @@ void invertirPrioridadTVisitaDia(TVisitaDia &visita) {
 }
 
 bool estaEnTVisitaDia(TVisitaDia visita, int id) {
-  return visita->ids[id] == 1;
+  return visita->ids[id] != NULL;
 } 
 
 float prioridadTVisitaDia(TVisitaDia visita, int id){
-  return 0.0;
+  return edadPromedioTGrupoABB(visita->ids[id]);
 }
 
 TGrupoABB masPrioritarioTVisitaDia(TVisitaDia visita){
-	return NULL;
+	return visita->cola[1];
 }
 
 
