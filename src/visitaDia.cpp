@@ -13,7 +13,7 @@ TVisitaDia crearTVisitaDia(TFecha fecha, int N){
   nuevo->max = N;
   nuevo->cant = 0;
   nuevo->cola = new TGrupoABB[N+1];
-  nuevo->ids = new int[N];
+  nuevo->ids = new int[N+1];
   for (int i = 0; i <= N; i++){
     nuevo->ids[i] = 0;
   }
