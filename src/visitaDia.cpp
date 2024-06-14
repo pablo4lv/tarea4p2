@@ -52,7 +52,9 @@ TGrupoABB desencolarGrupoTVisitaDia(TVisitaDia &visitaDia){
 
 void liberarTVisitaDia(TVisitaDia &visitaDia){
   for(int i = 0; i < visitaDia->max; i++){
-    liberarTGrupoABB(visitaDia->cola[i]);
+    if (visitaDia->cola[i] != NULL){
+      liberarTGrupoABB(visitaDia->cola[i]);
+    }
   }
   delete visitaDia->cola;
   liberarTFecha(visitaDia->fecha);
