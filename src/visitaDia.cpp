@@ -37,9 +37,9 @@ void encolarGrupoTVisitaDia(TVisitaDia &visita, TGrupoABB grupo){
     visita->cola[visita->cant + 1] = grupo;
     filtradoAscendente(visita->cant + 1, visita);
     visita->cant++;
-  }
 
-  //AGREGAR AL ARREGLO AUX
+    visita->ids[idGrupo(grupo)] = 1;
+  }
 }
 
 int cantidadGruposTVisitaDia(TVisitaDia visitaDia){
