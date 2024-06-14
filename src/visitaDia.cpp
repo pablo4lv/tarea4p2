@@ -45,6 +45,29 @@ int cantidadGruposTVisitaDia(TVisitaDia visitaDia){
 }
 
 void imprimirTVisitaDia(TVisitaDia visitaDia){
+  printf("Visita para dia: ");
+  imprimirTFecha(visitaDia->fecha);
+  printf("\n");
+
+  int inicio = 1;
+  int nivel = 1;
+  while (inicio <= visitaDia->cant){
+    printf("Nivel %d\n", nivel);
+    
+    int final;
+    if (inicio*2 - 1 <= visitaDia->cant){
+      final = inicio*2 - 1;
+    } else {
+      final = visitaDia->cant;
+    }
+
+    for (int i = inicio; i<= final; i++){
+      printf("%d) Grupo %d con edad promedio %f\n", i,i, edadPromedioTGrupoABB(visitaDia->cola[i]));
+      imprimirTGrupoABB(visitaDia->cola[i]);
+    }
+    inicio = inicio*2;
+    nivel++;
+  }
 }
 
 TGrupoABB desencolarGrupoTVisitaDia(TVisitaDia &visitaDia){
