@@ -61,12 +61,8 @@ bool sonExposicionesCompatibles(TExposicion exp1, TExposicion exp2){
 }
 
 void liberarTExposicion(TExposicion &exp){
-    if (exp->inicio != NULL){
-        liberarTFecha(exp->inicio);
-    }
-    if (exp->fin){
-        liberarTFecha(exp->fin);
-    }
+    liberarTFecha(exp->inicio);
+    liberarTFecha(exp->fin);
     liberarTConjuntoPiezas(exp->conjunto);
     delete exp;
     exp = NULL;
