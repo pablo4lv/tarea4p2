@@ -146,7 +146,7 @@ void liberarTVisitaDia(TVisitaDia &visitaDia){
 void invertirPrioridadTVisitaDia(TVisitaDia &visita) {
   visita->minHeap = !visita->minHeap;
   //filtrar
-  
+  filtradoDescendente(1,visita);
 }
 
 bool estaEnTVisitaDia(TVisitaDia visita, int id) {
