@@ -37,7 +37,7 @@ void agregarVisitaDiaTHashVisitaDia(THashVisitaDia hash, TVisitaDia visitaDia){
 void imprimirTHashVisitaDia(THashVisitaDia hash){
     for (int i = 0; i < hash->max; i++){
         if (hash->coleccion[i] == NULL){
-            printf("No hay elementos guardados la posicion %d de la tabla", i);
+            printf("No hay elementos guardados la posicion %d de la tabla.\n", i);
         } else {
             nodo *aux = hash->coleccion[i];
             while (aux != NULL){
