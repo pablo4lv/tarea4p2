@@ -6,6 +6,7 @@ struct rep_visitadia{
   int cant;
   TGrupoABB *cola;
   TGrupoABB *ids;
+  bool minHeap;
 };
 
 TVisitaDia crearTVisitaDia(TFecha fecha, int N){
@@ -19,16 +20,28 @@ TVisitaDia crearTVisitaDia(TFecha fecha, int N){
     nuevo->cola[i] = NULL;
   }
   nuevo->fecha = fecha;
+  nuevo->minHeap = true;
   return nuevo;
 }
 
 void filtradoAscendente(int pos, TVisitaDia &visita){
-  while (pos > 1 && edadPromedioTGrupoABB(visita->cola[pos]) <= edadPromedioTGrupoABB(visita->cola[pos/2])){
-    TGrupoABB aux = visita->cola[pos];
-    visita->cola[pos] = visita->cola[pos/2];
-    visita->cola[pos/2] = aux;
+  while (pos > 1){
+    bool condicion;
+    if (visita->minHeap){
+      condicion = edadPromedioTGrupoABB(visita->cola[pos]) < edadPromedioTGrupoABB(visita->cola[pos/2]);
+    } else {
+      condicion = edadPromedioTGrupoABB(visita->cola[pos]) > edadPromedioTGrupoABB(visita->cola[pos/2]);
+    }
 
-    pos = pos/2;
+    if (condicion){
+      TGrupoABB aux = visita->cola[pos];
+      visita->cola[pos] = visita->cola[pos/2];
+      visita->cola[pos/2] = aux;
+
+      pos = pos/2;
+    } else {
+      break;
+    }
   }
 }
 
@@ -72,7 +85,7 @@ void imprimirTVisitaDia(TVisitaDia visitaDia){
   }
 }
 
-void filtradoDescendente(int pos, TVisitaDia &visita){
+void filtradoDescendente(int pos, TVisitaDia &visita, bool minHeap){
   int izq = 2*pos;
   int der = 2*pos + 1;
   int menor = pos;
@@ -87,7 +100,7 @@ void filtradoDescendente(int pos, TVisitaDia &visita){
     visita->cola[pos] = visita->cola[menor];
     visita->cola[menor] = aux;
 
-    filtradoDescendente(menor, visita);
+    filtradoDescendente(menor, visita, visita->minHeap);
   }
 }
 
@@ -101,7 +114,7 @@ TGrupoABB desencolarGrupoTVisitaDia(TVisitaDia &visitaDia){
   visitaDia->cant--;
   //Filtro - si hay grupos
   if (visitaDia->cant > 0){
-    filtradoDescendente(1,visitaDia);
+    filtradoDescendente(1,visitaDia, visitaDia->minHeap);
   }
   return res;
 }
@@ -120,7 +133,9 @@ void liberarTVisitaDia(TVisitaDia &visitaDia){
 }
 
 void invertirPrioridadTVisitaDia(TVisitaDia &visita) {
-
+  visita->minHeap = !visita->minHeap;
+  //filtrar
+  
 }
 
 bool estaEnTVisitaDia(TVisitaDia visita, int id) {
