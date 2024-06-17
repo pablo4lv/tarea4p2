@@ -39,7 +39,7 @@ void imprimirTHashVisitaDia(THashVisitaDia hash){
         if (hash->coleccion[i] == NULL){
             printf("No hay elementos guardados la posicion %d de la tabla.\n", i);
         } else {
-            printf("Elementos en la posicion %d de la tabla\n",i);
+            printf("Elementos en la posicion %d de la tabla:\n",i);
             nodo *aux = hash->coleccion[i];
             while (aux != NULL){
                 imprimirTVisitaDia(aux->visita);
