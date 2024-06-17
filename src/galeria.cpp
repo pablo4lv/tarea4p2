@@ -1,6 +1,14 @@
 #include "../include/galeria.h"
 
 struct rep_galeria{
+    TColeccionPiezas coleccion;
+    TFecha fecha;
+    TListaExposiciones finalizadas;
+    TListaExposiciones activas;
+    TListaExposiciones futuras;
+
+    TVisitaDia visitaDia;
+    THashVisitaDia hash;
 };
 
 void agregarPiezaTGaleria(TGaleria galeria, TPieza pieza){
@@ -26,13 +34,30 @@ bool esCompatibleExposicionTGaleria(TGaleria galeria, TExposicion expo){
 }
 
 TGaleria crearTGaleria(TFecha fecha){
-    return NULL;
+    TGaleria nueva = new rep_galeria;
+    nueva->coleccion = crearColeccionPiezasVacia();
+    nueva->finalizadas = NULL;
+    nueva->activas = NULL;
+    nueva->futuras = NULL;
+    nueva->fecha = fecha;
+    nueva->visitaDia = crearTVisitaDia(fecha, MAX_GRUPOS_VISITA_DIA);
+    nueva->hash = crearTHashVisitaDia(CANT_ESTIMADA_VISITA_DIA_PASADAS);
+    return nueva;
 }
 
 void avanzarAFechaTGaleria(TGaleria galeria, TFecha fecha){
 }
 
 void liberarTGaleria(TGaleria &galeria){
+    liberarColeccionPiezas(galeria->coleccion);
+    liberarTListaExposiciones(galeria->activas,true);
+    liberarTListaExposiciones(galeria->finalizadas,true);
+    liberarTListaExposiciones(galeria->futuras,true);
+    liberarTFecha(galeria->fecha);
+    liberarTHashVisitaDia(galeria->hash);
+    liberarTVisitaDia(galeria->visitaDia);
+    delete galeria;
+    galeria = NULL;
 }
 
 // Funciones tarea 4
