@@ -104,8 +104,12 @@ void liberarTGaleria(TGaleria &galeria){
     liberarTListaExposiciones(galeria->finalizadas,true);
     liberarTListaExposiciones(galeria->futuras,true);
     liberarTFecha(galeria->fecha);
-    liberarTHashVisitaDia(galeria->hash);
-    liberarTVisitaDia(galeria->visitaDia);
+    if (galeria->hash != NULL){
+        liberarTHashVisitaDia(galeria->hash);
+    }
+    if (galeria->visitaDia != NULL){
+        liberarTVisitaDia(galeria->visitaDia);
+    }
     delete galeria;
     galeria = NULL;
 }
