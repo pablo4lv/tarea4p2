@@ -50,10 +50,26 @@ void imprimirTHashVisitaDia(THashVisitaDia hash){
 }
 
 TVisitaDia obtenerVisitaDiaTHashVisitaDia(THashVisitaDia hash, TFecha fecha){
+    int pos = funcionHash(fecha, hash->max);
+    nodo *aux = hash->coleccion[pos];
+    while (aux != NULL){
+        if (compararTFechas(fecha,fechaTVisitaDia(aux->visita)) == 0){
+            return aux->visita;
+        }
+        aux = aux->sig;
+    }
     return NULL;
 }
 
 bool perteneceVisitaDiaTHashVisitaDia(THashVisitaDia hash, TFecha fecha){
+    int pos = funcionHash(fecha, hash->max);
+    nodo *aux = hash->coleccion[pos];
+    while (aux != NULL){
+        if (compararTFechas(fecha,fechaTVisitaDia(aux->visita)) == 0){
+            return true;
+        }
+        aux = aux->sig;
+    }
     return false;
 }
 
