@@ -53,7 +53,7 @@ void liberarTGaleria(TGaleria &galeria){
     liberarTListaExposiciones(galeria->activas,true);
     liberarTListaExposiciones(galeria->finalizadas,true);
     liberarTListaExposiciones(galeria->futuras,true);
-    liberarTFecha(galeria->fecha);
+    // liberarTFecha(galeria->fecha);
     liberarTHashVisitaDia(galeria->hash);
     liberarTVisitaDia(galeria->visitaDia);
     delete galeria;
