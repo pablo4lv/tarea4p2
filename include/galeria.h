@@ -22,6 +22,7 @@
 #include "hashVisitaDia.h"
 
 #define MAX_GRUPOS_VISITA_DIA 100
+#define CANT_ESTIMADA_VISITA_DIA_PASADAS 100
 
 typedef struct rep_galeria* TGaleria;
 
