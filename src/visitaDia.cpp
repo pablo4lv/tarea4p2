@@ -43,7 +43,7 @@ void encolarGrupoTVisitaDia(TVisitaDia &visita, TGrupoABB grupo){
 }
 
 int cantidadGruposTVisitaDia(TVisitaDia visitaDia){
-  return 0;
+  return visitaDia->cant;
 }
 
 void imprimirTVisitaDia(TVisitaDia visitaDia){
@@ -72,8 +72,38 @@ void imprimirTVisitaDia(TVisitaDia visitaDia){
   }
 }
 
+void filtradoDescendente(int pos, TVisitaDia &visita){
+  int izq = 2*pos;
+  int der = 2*pos + 1;
+  int menor = pos;
+  if (izq <= visita->cant && edadPromedioTGrupoABB(visita->cola[izq]) < edadPromedioTGrupoABB(visita->cola[pos])){
+    menor = izq;
+  }
+  if (der <= visita->cant && edadPromedioTGrupoABB(visita->cola[der]) < edadPromedioTGrupoABB(visita->cola[izq])){
+    menor = der;
+  }
+  if (menor != pos){
+    TGrupoABB aux = visita->cola[pos];
+    visita->cola[pos] = visita->cola[menor];
+    visita->cola[menor] = aux;
+
+    filtradoDescendente(menor, visita);
+  }
+}
+
 TGrupoABB desencolarGrupoTVisitaDia(TVisitaDia &visitaDia){
-    return NULL;  
+  //Guardo el grupo eliminado
+  TGrupoABB res = visitaDia->cola[1];
+  //Muevo el ultimo a la raiz
+  visitaDia->cola[1] = visitaDia->cola[visitaDia->cant];
+  //Elimino el puntero del ultimo lugar
+  visitaDia->cola[visitaDia->cant] = NULL;
+  visitaDia->cant--;
+  //Filtro - si hay grupos
+  if (visitaDia->cant > 0){
+    filtradoDescendente(1,visitaDia);
+  }
+  return res;
 }
 
 void liberarTVisitaDia(TVisitaDia &visitaDia){
@@ -90,6 +120,7 @@ void liberarTVisitaDia(TVisitaDia &visitaDia){
 }
 
 void invertirPrioridadTVisitaDia(TVisitaDia &visita) {
+
 }
 
 bool estaEnTVisitaDia(TVisitaDia visita, int id) {
