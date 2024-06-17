@@ -118,6 +118,8 @@ void filtradoDescendente(int pos, TVisitaDia &visita){
 TGrupoABB desencolarGrupoTVisitaDia(TVisitaDia &visitaDia){
   //Guardo el grupo eliminado
   TGrupoABB res = visitaDia->cola[1];
+  //lo elimino del arreglo aux con los ids
+  visitaDia->ids[idGrupo(visitaDia->cola[1])] = 0;
   //Muevo el ultimo a la raiz
   visitaDia->cola[1] = visitaDia->cola[visitaDia->cant];
   //Elimino el puntero del ultimo lugar
