@@ -149,8 +149,8 @@ void invertirPrioridadTVisitaDia(TVisitaDia &visita) {
   visita->minHeap = !visita->minHeap;
   //filtrar
 
-  for (int i = 1; i < visita->cant; i++){
-    filtradoDescendente(1,visita);
+  for (int i = visita->cant / 2; i > 0; i--){
+    filtradoDescendente(i,visita);
   }
   
   // filtradoDescendente(1,visita);
