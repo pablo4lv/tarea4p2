@@ -1,8 +1,13 @@
 
 #include "hashVisitaDia.h"
 
+struct nodo{
+    TVisitaDia visita;
+    nodo *sig;
+};
+
 struct rep_hashvisitadia {
-    TVisitaDia *coleccion;
+    nodo **coleccion;
     int max;
 };
 
@@ -13,7 +18,7 @@ int funcionHash(TFecha fecha, int cantEstimadas){
 
 THashVisitaDia crearTHashVisitaDia(int cantEstimadas){
     THashVisitaDia nuevo = new rep_hashvisitadia;
-    nuevo->coleccion = new TVisitaDia[cantEstimadas];
+    nuevo->coleccion = new nodo*[cantEstimadas];
     for (int i = 0; i < cantEstimadas; i++){
         nuevo->coleccion[i] = NULL;
     }
@@ -23,10 +28,24 @@ THashVisitaDia crearTHashVisitaDia(int cantEstimadas){
 
 void agregarVisitaDiaTHashVisitaDia(THashVisitaDia hash, TVisitaDia visitaDia){
     int posicion = funcionHash(fechaTVisitaDia(visitaDia),hash->max);
-    hash->coleccion[posicion] = visitaDia;
+    nodo* nuevo = new nodo;
+    nuevo->visita = visitaDia;
+    nuevo->sig = hash->coleccion[posicion];
+    hash->coleccion[posicion] = nuevo;
 }
 
 void imprimirTHashVisitaDia(THashVisitaDia hash){
+    for (int i = 0; i < hash->max; i++){
+        if (hash->coleccion[i] == NULL){
+            printf("No hay elementos guardados la posicion %d de la tabla", i);
+        } else {
+            nodo *aux = hash->coleccion[i];
+            while (aux != NULL){
+                imprimirTVisitaDia(aux->visita);
+                aux = aux->sig;
+            }
+        }
+    }
 }
 
 TVisitaDia obtenerVisitaDiaTHashVisitaDia(THashVisitaDia hash, TFecha fecha){
@@ -39,8 +58,12 @@ bool perteneceVisitaDiaTHashVisitaDia(THashVisitaDia hash, TFecha fecha){
 
 void liberarTHashVisitaDia(THashVisitaDia &hash){
     for (int i = 0; i < hash->max; i++){
-        if (hash->coleccion[i] != NULL){
-            liberarTVisitaDia(hash->coleccion[i]);
+        nodo *actual = hash->coleccion[i];
+        while (actual != NULL){
+            nodo *aux = actual;
+            actual = actual->sig;
+            liberarTVisitaDia(aux->visita);
+            delete aux;
         }
     }
     delete[] hash->coleccion;
