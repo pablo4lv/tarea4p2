@@ -43,6 +43,7 @@ void liberarTHashVisitaDia(THashVisitaDia &hash){
             liberarTVisitaDia(hash->coleccion[i]);
         }
     }
+    delete[] hash->coleccion;
     delete hash;
     hash = NULL;
 }
