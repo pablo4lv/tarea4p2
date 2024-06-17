@@ -150,7 +150,7 @@ void invertirPrioridadTVisitaDia(TVisitaDia &visita) {
   //filtrar
 
   for (int i = 1; i < visita->cant; i++){
-    filtradoDescendente(i,visita);
+    filtradoDescendente(1,visita);
   }
   
   // filtradoDescendente(1,visita);
