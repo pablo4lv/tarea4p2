@@ -85,22 +85,33 @@ void imprimirTVisitaDia(TVisitaDia visitaDia){
   }
 }
 
-void filtradoDescendente(int pos, TVisitaDia &visita, bool minHeap){
+void filtradoDescendente(int pos, TVisitaDia &visita){
   int izq = 2*pos;
   int der = 2*pos + 1;
-  int menor = pos;
-  if (izq <= visita->cant && edadPromedioTGrupoABB(visita->cola[izq]) < edadPromedioTGrupoABB(visita->cola[pos])){
-    menor = izq;
+  int objetivo = pos;
+ 
+  if (visita->minHeap){
+    if (izq <= visita->cant && edadPromedioTGrupoABB(visita->cola[izq]) < edadPromedioTGrupoABB(visita->cola[objetivo])){
+      objetivo = izq;
+    }
+    if (der <= visita->cant && edadPromedioTGrupoABB(visita->cola[der]) < edadPromedioTGrupoABB(visita->cola[objetivo])){
+      objetivo = der;
+    }
+  } else {
+    if (izq <= visita->cant && edadPromedioTGrupoABB(visita->cola[izq]) > edadPromedioTGrupoABB(visita->cola[objetivo])){
+      objetivo = izq;
+    }
+    if (der <= visita->cant && edadPromedioTGrupoABB(visita->cola[der]) > edadPromedioTGrupoABB(visita->cola[objetivo])){
+      objetivo = der;
+    }
   }
-  if (der <= visita->cant && edadPromedioTGrupoABB(visita->cola[der]) < edadPromedioTGrupoABB(visita->cola[izq])){
-    menor = der;
-  }
-  if (menor != pos){
-    TGrupoABB aux = visita->cola[pos];
-    visita->cola[pos] = visita->cola[menor];
-    visita->cola[menor] = aux;
 
-    filtradoDescendente(menor, visita, visita->minHeap);
+  if (objetivo != pos){
+    TGrupoABB aux = visita->cola[pos];
+    visita->cola[pos] = visita->cola[objetivo];
+    visita->cola[objetivo] = aux;
+
+    filtradoDescendente(objetivo, visita);
   }
 }
 
@@ -114,7 +125,7 @@ TGrupoABB desencolarGrupoTVisitaDia(TVisitaDia &visitaDia){
   visitaDia->cant--;
   //Filtro - si hay grupos
   if (visitaDia->cant > 0){
-    filtradoDescendente(1,visitaDia, visitaDia->minHeap);
+    filtradoDescendente(1,visitaDia);
   }
   return res;
 }
