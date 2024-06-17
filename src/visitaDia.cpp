@@ -19,7 +19,7 @@ TVisitaDia crearTVisitaDia(TFecha fecha, int N){
     nuevo->ids[i] = NULL;
     nuevo->cola[i] = NULL;
   }
-  nuevo->fecha = copiarTFecha(fecha);
+  nuevo->fecha = fecha;
   nuevo->minHeap = true;
   return nuevo;
 }
