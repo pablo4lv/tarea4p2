@@ -7,8 +7,8 @@ struct rep_galeria{
     TListaExposiciones activas;
     TListaExposiciones futuras;
 
-    TVisitaDia visitaDia;
-    THashVisitaDia hash;
+    // TVisitaDia visitaDia;
+    // THashVisitaDia hash;
 };
 
 void agregarPiezaTGaleria(TGaleria galeria, TPieza pieza){
@@ -40,8 +40,8 @@ TGaleria crearTGaleria(TFecha fecha){
     nueva->activas = NULL;
     nueva->futuras = NULL;
     nueva->fecha = fecha;
-    nueva->visitaDia = crearTVisitaDia(fecha, MAX_GRUPOS_VISITA_DIA);
-    nueva->hash = crearTHashVisitaDia(CANT_ESTIMADA_VISITA_DIA_PASADAS);
+    // nueva->visitaDia = crearTVisitaDia(fecha, MAX_GRUPOS_VISITA_DIA);
+    // nueva->hash = crearTHashVisitaDia(CANT_ESTIMADA_VISITA_DIA_PASADAS);
     return nueva;
 }
 
@@ -54,8 +54,8 @@ void liberarTGaleria(TGaleria &galeria){
     liberarTListaExposiciones(galeria->finalizadas,true);
     liberarTListaExposiciones(galeria->futuras,true);
     liberarTFecha(galeria->fecha);
-    liberarTHashVisitaDia(galeria->hash);
-    liberarTVisitaDia(galeria->visitaDia);
+    // liberarTHashVisitaDia(galeria->hash);
+    // liberarTVisitaDia(galeria->visitaDia);
     delete galeria;
     galeria = NULL;
 }
