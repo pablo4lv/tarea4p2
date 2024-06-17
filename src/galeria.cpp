@@ -46,6 +46,27 @@ TGaleria crearTGaleria(TFecha fecha){
 }
 
 void avanzarAFechaTGaleria(TGaleria galeria, TFecha fecha){
+    TListaExposiciones unidas1 = unirListaExposiciones(galeria->activas, galeria->finalizadas);
+    //Lista con todas las expo
+    TListaExposiciones unidas2 = unirListaExposiciones(unidas1, galeria->futuras);
+    liberarTListaExposiciones(unidas1, false);
+
+    //liberar las listas de la galeria
+    liberarTListaExposiciones(galeria->activas, false);
+    liberarTListaExposiciones(galeria->finalizadas, false);
+    liberarTListaExposiciones(galeria->futuras, false);
+
+    //agregar las listas modificadas
+    galeria->activas = obtenerExposicionesActivas(unidas2, fecha);
+    galeria->finalizadas = obtenerExposicionesFinalizadas(unidas2, fecha);
+    galeria->futuras = unidas2;
+
+    //liberar la fecha vieja y agregar la nueva
+    liberarTFecha(galeria->fecha);
+    galeria->fecha = fecha;
+
+    agregarVisitaDiaTHashVisitaDia(galeria->hash, galeria->visitaDia);
+    galeria->visitaDia = NULL;
 }
 
 void liberarTGaleria(TGaleria &galeria){
