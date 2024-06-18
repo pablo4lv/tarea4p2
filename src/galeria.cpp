@@ -121,6 +121,7 @@ float indiceFelicidadVisitanteTGaleria(TGaleria galeria, TVisitante visitante){
 }
 
 void llegaGrupoTGaleria(TGaleria galeria, TGrupoABB grupoABB){
+    encolarGrupoTVisitaDia(galeria->visitaDia, grupoABB);
 }
 
 TConjuntoPiezas piezasEnReservaTGaleria(TGaleria galeria){    
@@ -128,5 +129,5 @@ TConjuntoPiezas piezasEnReservaTGaleria(TGaleria galeria){
 }
 
 TVisitaDia obtenerVisitaDiaTGaleria(TGaleria galeria, TFecha fecha){
-    return NULL;
+    return obtenerVisitaDiaTHashVisitaDia(galeria->hash,fecha);
 }
