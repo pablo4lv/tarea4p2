@@ -151,8 +151,8 @@ float indiceFelicidadVisitanteTGaleria(TGaleria galeria, TVisitante visitante){
 
     int cpfe = cardinalTConjuntoPiezas(favEnExpo);
     
-    liberarTConjuntoPiezas(favoritas);
-    liberarTConjuntoPiezas(favEnExpo);
+    // liberarTConjuntoPiezas(favoritas);
+    // liberarTConjuntoPiezas(favEnExpo);
 
     return cpfe / cpf;
 }
