@@ -107,7 +107,7 @@ void liberarTGaleria(TGaleria &galeria){
 
     liberarTHashVisitaDia(galeria->hash);
 
-    liberarTVisitaDia(galeria->visitaDia);
+    // liberarTVisitaDia(galeria->visitaDia);
 
     delete galeria;
     galeria = NULL;
