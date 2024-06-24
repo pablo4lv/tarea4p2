@@ -133,16 +133,19 @@ TGrupoABB desencolarGrupoTVisitaDia(TVisitaDia &visitaDia){
 }
 
 void liberarTVisitaDia(TVisitaDia &visitaDia){
-  for(int i = 1; i < visitaDia->max; i++){
-    if (visitaDia->cola[i] != NULL){
-      liberarTGrupoABB(visitaDia->cola[i]);
+  if (visitaDia != NULL){
+    for(int i = 1; i <= visitaDia->max; i++){
+      if (visitaDia->cola[i] != NULL){
+        liberarTGrupoABB(visitaDia->cola[i]);
+      }
     }
+    delete[] visitaDia->ids;
+    delete[] visitaDia->cola;
+    liberarTFecha(visitaDia->fecha);
+    delete visitaDia;
+    visitaDia = NULL;
   }
-  delete[] visitaDia->ids;
-  delete[] visitaDia->cola;
-  liberarTFecha(visitaDia->fecha);
-  delete visitaDia;
-  visitaDia = NULL;
+
 }
 
 void invertirPrioridadTVisitaDia(TVisitaDia &visita) {
