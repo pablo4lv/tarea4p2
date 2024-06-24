@@ -121,7 +121,6 @@ TConjuntoPiezas piezasEnExposicionTGaleria(TGaleria galeria){
     for (int i = 1; i <= cant; i++){
         TExposicion expo = obtenerNesimaExposicionTListaExposiciones(galeria->activas, i);
         TConjuntoPiezas piezasExpo = obtenerPiezasTExposicion(expo);
-        liberarTExposicion(expo);
         res = unionTConjuntoPiezas(res, piezasExpo);
     }
     return res;
