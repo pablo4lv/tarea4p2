@@ -115,7 +115,7 @@ void liberarTGaleria(TGaleria &galeria){
 // Funciones tarea 4
 
 TConjuntoPiezas piezasEnExposicionTGaleria(TGaleria galeria){
-    TConjuntoPiezas res = crearTConjuntoPiezas(MAX_PIEZAS);
+    TConjuntoPiezas res = NULL;
 
     int cant = cantidadExposicionesTListaExposiciones(galeria->activas);
     for (int i = 1; i <= cant; i++){
