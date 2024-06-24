@@ -115,7 +115,16 @@ void liberarTGaleria(TGaleria &galeria){
 // Funciones tarea 4
 
 TConjuntoPiezas piezasEnExposicionTGaleria(TGaleria galeria){
-    return NULL;
+    TConjuntoPiezas res = crearTConjuntoPiezas(MAX_PIEZAS);
+
+    TListaExposiciones activas = galeria->activas;
+    int cant = cantidadExposicionesTListaExposiciones(activas);
+    for (int i = 1; i <= cant; i++){
+        TExposicion expo = obtenerNesimaExposicionTListaExposiciones(galeria->activas, i);
+        TConjuntoPiezas piezasExpo = obtenerPiezasTExposicion(expo);
+        res = unionTConjuntoPiezas(res, piezasExpo);
+    }
+    return res;
 }
 
 float indiceFelicidadVisitanteTGaleria(TGaleria galeria, TVisitante visitante){
