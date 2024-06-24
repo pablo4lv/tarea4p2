@@ -30,11 +30,11 @@ all: principal
 # Objetivos que no son archivos.
 .PHONY: all clean_bin clean_test clean testing entrega claves
 
-ARCHIVO_ENTREGA=EntregaTarea3.tar.gz
+ARCHIVO_ENTREGA=EntregaTarea4.tar.gz
 
-ENTREGAR = visitante exposicion listaExposiciones visitaDia hashVisitaDia galeria
+ENTREGAR = visitante exposicion conjuntoPiezas listaExposiciones visitaDia hashVisitaDia galeria
 
-MODULOS = $(ENTREGAR) fecha utils pieza visitante coleccionPiezas conjuntoPiezas grupoABB coleccionTGrupos
+MODULOS = $(ENTREGAR) fecha utils pieza coleccionPiezas grupoABB coleccionTGrupos
 
 # directorios
 HDIR    = include
