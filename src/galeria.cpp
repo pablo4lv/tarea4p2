@@ -84,9 +84,8 @@ void avanzarAFechaTGaleria(TGaleria galeria, TFecha fecha){
     liberarTListaExposiciones(galeria->futuras, false);
 
     //agregar las listas modificadas
-    TFecha aux = copiarTFecha(fecha);
-    galeria->activas = obtenerExposicionesActivas(unidas2, aux);
-    galeria->finalizadas = obtenerExposicionesFinalizadas(unidas2, aux);
+    galeria->activas = obtenerExposicionesActivas(unidas2, fecha);
+    galeria->finalizadas = obtenerExposicionesFinalizadas(unidas2, fecha);
     galeria->futuras = unidas2;
 
     //liberar la fecha vieja y agregar la nueva
