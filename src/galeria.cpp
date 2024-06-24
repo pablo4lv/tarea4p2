@@ -67,7 +67,7 @@ TGaleria crearTGaleria(TFecha fecha){
     nueva->activas = NULL;
     nueva->futuras = NULL;
     nueva->fecha = fecha;
-    nueva->visitaDia = crearTVisitaDia(copiarTFecha(fecha), MAX_GRUPOS_VISITA_DIA);
+    nueva->visitaDia = crearTVisitaDia(fecha, MAX_GRUPOS_VISITA_DIA);
     nueva->hash = crearTHashVisitaDia(CANT_ESTIMADA_VISITA_DIA_PASADAS);
     return nueva;
 }
