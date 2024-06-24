@@ -155,7 +155,7 @@ float indiceFelicidadVisitanteTGaleria(TGaleria galeria, TVisitante visitante){
     // liberarTConjuntoPiezas(favoritas);
     // liberarTConjuntoPiezas(favEnExpo);
 
-    return cpfe / cpf;
+    return float(cpfe) / float(cpf);
 }
 
 void llegaGrupoTGaleria(TGaleria galeria, TGrupoABB grupoABB){
