@@ -146,7 +146,11 @@ void llegaGrupoTGaleria(TGaleria galeria, TGrupoABB grupoABB){
 }
 
 TConjuntoPiezas piezasEnReservaTGaleria(TGaleria galeria){
-    return diferenciaTConjuntoPiezas(galeria->conjuntoPiezas,piezasEnExposicionTGaleria(galeria));
+    TConjuntoPiezas todas = galeria->conjuntoPiezas;
+    TConjuntoPiezas enExpo = piezasEnExposicionTGaleria(galeria);
+    TConjuntoPiezas res = diferenciaTConjuntoPiezas(todas, enExpo);
+    liberarTConjuntoPiezas(enExpo);
+    return res;
 }
 
 TVisitaDia obtenerVisitaDiaTGaleria(TGaleria galeria, TFecha fecha){
