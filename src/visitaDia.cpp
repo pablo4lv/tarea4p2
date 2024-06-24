@@ -133,7 +133,7 @@ TGrupoABB desencolarGrupoTVisitaDia(TVisitaDia &visitaDia){
 }
 
 void liberarTVisitaDia(TVisitaDia &visitaDia){
-  for(int i = 1; i <= visitaDia->max; i++){
+  for(int i = 1; i < visitaDia->max; i++){
     if (visitaDia->cola[i] != NULL){
       liberarTGrupoABB(visitaDia->cola[i]);
     }
