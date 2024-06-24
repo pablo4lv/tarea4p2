@@ -138,7 +138,23 @@ TConjuntoPiezas piezasEnExposicionTGaleria(TGaleria galeria){
 }
 
 float indiceFelicidadVisitanteTGaleria(TGaleria galeria, TVisitante visitante){
-    return 0.0;
+    TConjuntoPiezas favoritas = obtenerPiezasFavoritasTVisitante(visitante);
+    int cpf = cardinalTConjuntoPiezas(favoritas);
+
+    //
+    if (cpf == 0){
+        return 1;
+    }
+
+    TConjuntoPiezas enExpo = piezasEnExposicionTGaleria(galeria);
+    TConjuntoPiezas favEnExpo = interseccionTConjuntoPiezas(favoritas,enExpo);
+
+    int cpfe = cardinalTConjuntoPiezas(favEnExpo);
+    
+    liberarTConjuntoPiezas(favoritas);
+    liberarTConjuntoPiezas(favEnExpo);
+
+    return cpfe / cpf;
 }
 
 void llegaGrupoTGaleria(TGaleria galeria, TGrupoABB grupoABB){
