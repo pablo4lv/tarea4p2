@@ -131,5 +131,9 @@ TConjuntoPiezas piezasEnReservaTGaleria(TGaleria galeria){
 }
 
 TVisitaDia obtenerVisitaDiaTGaleria(TGaleria galeria, TFecha fecha){
+    if (compararTFechas(fecha, galeria->fecha) == 0){
+        return galeria->visitaDia;
+    }
+
     return obtenerVisitaDiaTHashVisitaDia(galeria->hash,fecha);
 }
