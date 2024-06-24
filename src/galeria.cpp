@@ -145,10 +145,8 @@ void llegaGrupoTGaleria(TGaleria galeria, TGrupoABB grupoABB){
     encolarGrupoTVisitaDia(galeria->visitaDia, grupoABB);
 }
 
-TConjuntoPiezas piezasEnReservaTGaleria(TGaleria galeria){   
-    
-
-    return NULL;
+TConjuntoPiezas piezasEnReservaTGaleria(TGaleria galeria){
+    return diferenciaTConjuntoPiezas(galeria->conjuntoPiezas,piezasEnExposicionTGaleria(galeria));
 }
 
 TVisitaDia obtenerVisitaDiaTGaleria(TGaleria galeria, TFecha fecha){
