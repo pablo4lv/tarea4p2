@@ -9,10 +9,12 @@ struct rep_galeria{
 
     TVisitaDia visitaDia;
     THashVisitaDia hash;
+    TConjuntoPiezas conjuntoPiezas;
 };
 
 void agregarPiezaTGaleria(TGaleria galeria, TPieza pieza){
     insertarPiezaColeccionPiezas(galeria->coleccion,pieza);
+    insertarTConjuntoPiezas(galeria->conjuntoPiezas,idTPieza(pieza));    
 }
 
 void agregarExposicionTGaleria(TGaleria galeria, TExposicion expo){
@@ -67,8 +69,10 @@ TGaleria crearTGaleria(TFecha fecha){
     nueva->activas = NULL;
     nueva->futuras = NULL;
     nueva->fecha = fecha;
+
     nueva->visitaDia = crearTVisitaDia(copiarTFecha(fecha), MAX_GRUPOS_VISITA_DIA);
     nueva->hash = crearTHashVisitaDia(CANT_ESTIMADA_VISITA_DIA_PASADAS);
+    nueva->conjuntoPiezas = crearTConjuntoPiezas(MAX_PIEZAS);
     return nueva;
 }
 
@@ -108,6 +112,8 @@ void liberarTGaleria(TGaleria &galeria){
 
     liberarTVisitaDia(galeria->visitaDia);
 
+    liberarTConjuntoPiezas(galeria->conjuntoPiezas);
+
     delete galeria;
     galeria = NULL;
 }
@@ -116,15 +122,16 @@ void liberarTGaleria(TGaleria &galeria){
 
 TConjuntoPiezas piezasEnExposicionTGaleria(TGaleria galeria){
     TConjuntoPiezas res = crearTConjuntoPiezas(MAX_PIEZAS);
-    
     int cant = cantidadExposicionesTListaExposiciones(galeria->activas);
-
 
     for (int i = 1; i <= cant; i++){
         TExposicion expo = obtenerNesimaExposicionTListaExposiciones(galeria->activas, i);
         TConjuntoPiezas piezasExpo = obtenerPiezasTExposicion(expo);
+        //uno
         TConjuntoPiezas aux = unionTConjuntoPiezas(res, piezasExpo);
+        //libero el conjunto viejo
         liberarTConjuntoPiezas(res);
+        //reemplazo por la union
         res = aux;
     }
     return res;
@@ -138,7 +145,9 @@ void llegaGrupoTGaleria(TGaleria galeria, TGrupoABB grupoABB){
     encolarGrupoTVisitaDia(galeria->visitaDia, grupoABB);
 }
 
-TConjuntoPiezas piezasEnReservaTGaleria(TGaleria galeria){    
+TConjuntoPiezas piezasEnReservaTGaleria(TGaleria galeria){   
+    
+
     return NULL;
 }
 
