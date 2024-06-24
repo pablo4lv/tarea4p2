@@ -136,6 +136,7 @@ void liberarTVisitaDia(TVisitaDia &visitaDia){
   if (visitaDia != NULL){
     for(int i = 1; i <= visitaDia->max; i++){
       if (visitaDia->cola[i] != NULL){
+        printf("a");
         liberarTGrupoABB(visitaDia->cola[i]);
       }
     }
