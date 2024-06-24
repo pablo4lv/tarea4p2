@@ -79,7 +79,10 @@ void liberarTHashVisitaDia(THashVisitaDia &hash){
         while (actual != NULL){
             nodo *aux = actual;
             actual = actual->sig;
-            liberarTVisitaDia(aux->visita);
+            //
+            if (aux->visita != NULL){
+                liberarTVisitaDia(aux->visita);
+            }
             delete aux;
         }
     }
