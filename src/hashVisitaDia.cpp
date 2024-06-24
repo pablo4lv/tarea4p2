@@ -51,6 +51,9 @@ void imprimirTHashVisitaDia(THashVisitaDia hash){
 
 TVisitaDia obtenerVisitaDiaTHashVisitaDia(THashVisitaDia hash, TFecha fecha){
     int pos = funcionHash(fecha, hash->max);
+
+    return hash->coleccion[pos]->visita;
+
     nodo *aux = hash->coleccion[pos];
     while (aux != NULL){
         if (compararTFechas(fecha,fechaTVisitaDia(aux->visita)) == 0){
