@@ -141,7 +141,9 @@ void liberarTVisitaDia(TVisitaDia &visitaDia){
     }
     delete[] visitaDia->ids;
     delete[] visitaDia->cola;
-    liberarTFecha(visitaDia->fecha);
+    if (visitaDia->fecha != NULL){
+      liberarTFecha(visitaDia->fecha);
+    }
     delete visitaDia;
     visitaDia = NULL;
   }
