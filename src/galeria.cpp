@@ -122,6 +122,7 @@ TConjuntoPiezas piezasEnExposicionTGaleria(TGaleria galeria){
         TExposicion expo = obtenerNesimaExposicionTListaExposiciones(galeria->activas, i);
         TConjuntoPiezas piezasExpo = obtenerPiezasTExposicion(expo);
         res = unionTConjuntoPiezas(res, piezasExpo);
+        liberarTConjuntoPiezas(piezasExpo);
     }
     return res;
 }
