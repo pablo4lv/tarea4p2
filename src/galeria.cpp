@@ -90,7 +90,7 @@ void avanzarAFechaTGaleria(TGaleria galeria, TFecha fecha){
 
     //liberar la fecha vieja y agregar la nueva
     // liberarTFecha(galeria->fecha);
-    galeria->fecha = fecha;
+    galeria->fecha = copiarTFecha(fecha);
 
     agregarVisitaDiaTHashVisitaDia(galeria->hash, galeria->visitaDia);
     
