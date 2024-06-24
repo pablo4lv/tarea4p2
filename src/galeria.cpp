@@ -92,8 +92,8 @@ void avanzarAFechaTGaleria(TGaleria galeria, TFecha fecha){
 
     galeria->visitaDia = crearTVisitaDia(fecha, MAX_GRUPOS_VISITA_DIA);
 
-    galeria->fecha = copiarTFecha(fecha);
     liberarTFecha(galeria->fecha);
+    galeria->fecha = copiarTFecha(fecha);
 }
 
 void liberarTGaleria(TGaleria &galeria){
