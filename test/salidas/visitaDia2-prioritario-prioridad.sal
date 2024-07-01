@@ -1,0 +1,14 @@
+principal: principal.cpp:1145: void main_masPrioritarioTVisitaDia(TVisitaDia): Assertion `visitaDia != NULL' failed.
+==13526== 12 bytes in 1 blocks are definitely lost in loss record 1 of 7
+==13526==    at 0x4842F95: operator new(unsigned long) (vg_replace_malloc.c:483)
+==13526==    by 0x406029: crearTFecha(unsigned int, unsigned int, unsigned int) (fecha.cpp:10)
+==13526==    by 0x40277C: leerFecha(rep_fecha*&) (principal.cpp:594)
+==13526==    by 0x403D02: main_crearVisitaDia(rep_visitadia*&) (principal.cpp:1067)
+==13526==    by 0x401B5A: main (principal.cpp:393)
+==13526== 
+==13526== 248 (16 direct, 232 indirect) bytes in 1 blocks are definitely lost in loss record 4 of 7
+==13526==    at 0x4842F95: operator new(unsigned long) (vg_replace_malloc.c:483)
+==13526==    by 0x407028: crearTGrupoABBVacio(int) (grupoABB.cpp:198)
+==13526==    by 0x403013: main_crearGrupoABB(rep_grupoABB*&, int&) (principal.cpp:794)
+==13526==    by 0x401722: main (principal.cpp:332)
+==13526== 

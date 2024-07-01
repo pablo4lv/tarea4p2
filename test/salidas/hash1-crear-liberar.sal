@@ -1,0 +1,1 @@
+principal: principal.cpp:1681: void main_liberarTHashVisitaDia(rep_hashvisitadia*&): Assertion `hash != NULL' failed.

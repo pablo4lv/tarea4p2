@@ -1,0 +1,28 @@
+principal: principal.cpp:1614: void main_piezasEnReservaTGaleria(TGaleria): Assertion `galeria != NULL' failed.
+==13679== 12 bytes in 1 blocks are definitely lost in loss record 1 of 7
+==13679==    at 0x4842F95: operator new(unsigned long) (vg_replace_malloc.c:483)
+==13679==    by 0x406029: crearTFecha(unsigned int, unsigned int, unsigned int) (fecha.cpp:10)
+==13679==    by 0x40277C: leerFecha(rep_fecha*&) (principal.cpp:594)
+==13679==    by 0x404D91: main_crearGaleria(rep_galeria*&) (principal.cpp:1507)
+==13679==    by 0x40227B: main (principal.cpp:501)
+==13679== 
+==13679== 24 bytes in 2 blocks are definitely lost in loss record 2 of 7
+==13679==    at 0x4842F95: operator new(unsigned long) (vg_replace_malloc.c:483)
+==13679==    by 0x406029: crearTFecha(unsigned int, unsigned int, unsigned int) (fecha.cpp:10)
+==13679==    by 0x40277C: leerFecha(rep_fecha*&) (principal.cpp:594)
+==13679==    by 0x40455F: main_crearExposicion(rep_exposicion*&) (principal.cpp:1276)
+==13679==    by 0x401F39: main (principal.cpp:451)
+==13679== 
+==13679== 24 bytes in 2 blocks are definitely lost in loss record 3 of 7
+==13679==    at 0x4842F95: operator new(unsigned long) (vg_replace_malloc.c:483)
+==13679==    by 0x406029: crearTFecha(unsigned int, unsigned int, unsigned int) (fecha.cpp:10)
+==13679==    by 0x40277C: leerFecha(rep_fecha*&) (principal.cpp:594)
+==13679==    by 0x40456B: main_crearExposicion(rep_exposicion*&) (principal.cpp:1279)
+==13679==    by 0x401F39: main (principal.cpp:451)
+==13679== 
+==13679== 1,248 bytes in 4 blocks are definitely lost in loss record 4 of 7
+==13679==    at 0x4842F95: operator new(unsigned long) (vg_replace_malloc.c:483)
+==13679==    by 0x40649E: crearTPieza(int, char const*, char const*, char const*, rep_fecha*) (pieza.cpp:14)
+==13679==    by 0x402C8B: main_crearTPieza(rep_pieza*&, rep_fecha*&) (principal.cpp:705)
+==13679==    by 0x401528: main (principal.cpp:299)
+==13679== 

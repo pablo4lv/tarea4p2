@@ -1,0 +1,72 @@
+51,54d50
+< Exposicion #4 del 10/1/2023 al 15/6/2024
+< Piezas: 6 7 
+< Exposicion #1 del 1/12/2023 al 1/1/2024
+< Piezas: 1 2 
+56,61d51
+< Exposicion #2 del 2/1/2024 al 15/2/2024
+< Piezas: 3 4 
+< Exposicion #3 del 3/1/2024 al 15/2/2024
+< Piezas: 5 
+< Exposicion #5 del 10/4/2024 al 15/6/2024
+< Piezas: 8 9 
+64,65d53
+< Exposicion #1 del 1/12/2023 al 1/1/2024
+< Piezas: 1 2 
+67,72d54
+< Exposicion #4 del 10/1/2023 al 15/6/2024
+< Piezas: 6 7 
+< Exposicion #2 del 2/1/2024 al 15/2/2024
+< Piezas: 3 4 
+< Exposicion #3 del 3/1/2024 al 15/2/2024
+< Piezas: 5 
+74,75d55
+< Exposicion #5 del 10/4/2024 al 15/6/2024
+< Piezas: 8 9 
+78c58
+< 57> La exposicion es compatible con las demas exposiciones de la galeria.
+---
+> 57> La exposicion NO es compatible con las demas exposiciones de la galeria.
+82c62
+< 61> La exposicion es compatible con las demas exposiciones de la galeria.
+---
+> 61> La exposicion NO es compatible con las demas exposiciones de la galeria.
+86c66
+< 65> La exposicion es compatible con las demas exposiciones de la galeria.
+---
+> 65> La exposicion NO es compatible con las demas exposiciones de la galeria.
+93a74,107
+> ==13459== 12 bytes in 1 blocks are definitely lost in loss record 1 of 6
+> ==13459==    at 0x4842F95: operator new(unsigned long) (vg_replace_malloc.c:483)
+> ==13459==    by 0x406029: crearTFecha(unsigned int, unsigned int, unsigned int) (fecha.cpp:10)
+> ==13459==    by 0x40277C: leerFecha(rep_fecha*&) (principal.cpp:594)
+> ==13459==    by 0x404D91: main_crearGaleria(rep_galeria*&) (principal.cpp:1507)
+> ==13459==    by 0x40227B: main (principal.cpp:501)
+> ==13459== 
+> ==13459== 12 bytes in 1 blocks are definitely lost in loss record 2 of 6
+> ==13459==    at 0x4842F95: operator new(unsigned long) (vg_replace_malloc.c:483)
+> ==13459==    by 0x406029: crearTFecha(unsigned int, unsigned int, unsigned int) (fecha.cpp:10)
+> ==13459==    by 0x40277C: leerFecha(rep_fecha*&) (principal.cpp:594)
+> ==13459==    by 0x404E8F: main_avanzarAFechaGaleria(rep_galeria*) (principal.cpp:1535)
+> ==13459==    by 0x40232D: main (principal.cpp:509)
+> ==13459== 
+> ==13459== 108 bytes in 9 blocks are definitely lost in loss record 4 of 6
+> ==13459==    at 0x4842F95: operator new(unsigned long) (vg_replace_malloc.c:483)
+> ==13459==    by 0x406029: crearTFecha(unsigned int, unsigned int, unsigned int) (fecha.cpp:10)
+> ==13459==    by 0x40277C: leerFecha(rep_fecha*&) (principal.cpp:594)
+> ==13459==    by 0x40455F: main_crearExposicion(rep_exposicion*&) (principal.cpp:1276)
+> ==13459==    by 0x401F39: main (principal.cpp:451)
+> ==13459== 
+> ==13459== 108 bytes in 9 blocks are definitely lost in loss record 5 of 6
+> ==13459==    at 0x4842F95: operator new(unsigned long) (vg_replace_malloc.c:483)
+> ==13459==    by 0x406029: crearTFecha(unsigned int, unsigned int, unsigned int) (fecha.cpp:10)
+> ==13459==    by 0x40277C: leerFecha(rep_fecha*&) (principal.cpp:594)
+> ==13459==    by 0x40456B: main_crearExposicion(rep_exposicion*&) (principal.cpp:1279)
+> ==13459==    by 0x401F39: main (principal.cpp:451)
+> ==13459== 
+> ==13459== 2,916 (2,808 direct, 108 indirect) bytes in 9 blocks are definitely lost in loss record 6 of 6
+> ==13459==    at 0x4842F95: operator new(unsigned long) (vg_replace_malloc.c:483)
+> ==13459==    by 0x40649E: crearTPieza(int, char const*, char const*, char const*, rep_fecha*) (pieza.cpp:14)
+> ==13459==    by 0x402C8B: main_crearTPieza(rep_pieza*&, rep_fecha*&) (principal.cpp:705)
+> ==13459==    by 0x401528: main (principal.cpp:299)
+> ==13459== 

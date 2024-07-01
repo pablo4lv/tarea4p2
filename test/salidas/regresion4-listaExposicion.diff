@@ -1,0 +1,63 @@
+1,46c1,15
+< Bienvenido al programa principal de ArteProg. Por favor ingrese su comando:
+< 1> Lista de exposiciones creada con exito.
+< 2> La lista de exposiciones es vacia..
+< 3> Exposicion creada con exito.
+< 4> Piezas agregadas a la exposicion de forma exitosa.
+< 5> Se ha agregado la exposicion a la lista de forma exitosa.
+< 6> Exposicion creada con exito.
+< 7> Piezas agregadas a la exposicion de forma exitosa.
+< 8> Se ha agregado la exposicion a la lista de forma exitosa.
+< 9> Exposicion creada con exito.
+< 10> Piezas agregadas a la exposicion de forma exitosa.
+< 11> Se ha agregado la exposicion a la lista de forma exitosa.
+< 12> Exposicion #1 del 1/1/2022 al 1/7/2022
+< Piezas: 0 1 2 3 4 5 6 7 8 
+< Exposicion #2 del 1/2/2022 al 1/6/2022
+< Piezas: 0 1 2 3 4 5 6 7 8 
+< Exposicion #3 del 2/3/2022 al 1/5/2022
+< Piezas: 0 1 2 3 4 5 6 7 8 
+< 13> Exposicion creada con exito.
+< 14> Piezas agregadas a la exposicion de forma exitosa.
+< 15> La exposicion es compatible con el resto de las exposiciones de la lista.
+< 16> Exposicion liberada con exito.
+< 17> Exposicion #4 del 4/3/2002 al 1/7/2002
+< Piezas: 2 3 
+< Exposicion #5 del 5/3/2002 al 1/7/2002
+< Piezas: 3 4 
+< Exposicion #1 del 1/1/2022 al 1/7/2022
+< Piezas: 0 1 2 3 4 5 6 7 8 
+< Exposicion #2 del 1/2/2022 al 1/6/2022
+< Piezas: 0 1 2 3 4 5 6 7 8 
+< Exposicion #3 del 2/3/2022 al 1/5/2022
+< Piezas: 0 1 2 3 4 5 6 7 8 
+< 18> La lista de exposiciones NO es vacia.
+< 19> La exposicion de id 2 pertenece a la lista de exposiciones.
+< 20> Exposicion #3 del 2/3/2022 al 1/5/2022
+< Piezas: 0 1 2 3 4 5 6 7 8 
+< 21> Exposiciones finalizadas: 
+< Exposicion #3 del 2/3/2022 al 1/5/2022
+< Piezas: 0 1 2 3 4 5 6 7 8 
+< 22> Exposiciones activas: 
+< Exposicion #1 del 1/1/2022 al 1/7/2022
+< Piezas: 0 1 2 3 4 5 6 7 8 
+< 23> Exposicion #2 del 1/2/2022 al 1/6/2022
+< Piezas: 0 1 2 3 4 5 6 7 8 
+< 24> Lista exposiciones liberada con exito.
+< 25> Fin.
+---
+> principal: principal.cpp:1388: void main_agregarAListaExposiciones(rep_listaexposiciones*&, rep_exposicion*&): Assertion `expo != NULL' failed.
+> ==13448== 12 bytes in 1 blocks are definitely lost in loss record 1 of 5
+> ==13448==    at 0x4842F95: operator new(unsigned long) (vg_replace_malloc.c:483)
+> ==13448==    by 0x406029: crearTFecha(unsigned int, unsigned int, unsigned int) (fecha.cpp:10)
+> ==13448==    by 0x40277C: leerFecha(rep_fecha*&) (principal.cpp:594)
+> ==13448==    by 0x40455F: main_crearExposicion(rep_exposicion*&) (principal.cpp:1276)
+> ==13448==    by 0x401F39: main (principal.cpp:451)
+> ==13448== 
+> ==13448== 12 bytes in 1 blocks are definitely lost in loss record 2 of 5
+> ==13448==    at 0x4842F95: operator new(unsigned long) (vg_replace_malloc.c:483)
+> ==13448==    by 0x406029: crearTFecha(unsigned int, unsigned int, unsigned int) (fecha.cpp:10)
+> ==13448==    by 0x40277C: leerFecha(rep_fecha*&) (principal.cpp:594)
+> ==13448==    by 0x40456B: main_crearExposicion(rep_exposicion*&) (principal.cpp:1279)
+> ==13448==    by 0x401F39: main (principal.cpp:451)
+> ==13448== 

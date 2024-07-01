@@ -1,0 +1,19 @@
+1,4c1,13
+< Bienvenido al programa principal de ArteProg. Por favor ingrese su comando:
+< 1> Comienzo de test de tiempo para Visita Dia.
+< Fin de test de tiempo para Visita Dia.
+< 2> Fin.
+---
+> principal: principal.cpp:1752: void main_testTiempoVisitaDia(): Assertion `cantidadGrupos == cantidadGruposInsertados' failed.
+> ==13576== 208 bytes in 1 blocks are possibly lost in loss record 4 of 11
+> ==13576==    at 0x4842F95: operator new(unsigned long) (vg_replace_malloc.c:483)
+> ==13576==    by 0x405B1B: crearTVisitante(int, char const*, char const*, int) (visitante.cpp:47)
+> ==13576==    by 0x405669: main_testTiempoVisitaDia() (principal.cpp:1739)
+> ==13576==    by 0x4026C2: main (principal.cpp:573)
+> ==13576== 
+> ==13576== 16,252,264 (1,048,560 direct, 15,203,704 indirect) bytes in 65,535 blocks are definitely lost in loss record 11 of 11
+> ==13576==    at 0x4842F95: operator new(unsigned long) (vg_replace_malloc.c:483)
+> ==13576==    by 0x407028: crearTGrupoABBVacio(int) (grupoABB.cpp:198)
+> ==13576==    by 0x405677: main_testTiempoVisitaDia() (principal.cpp:1740)
+> ==13576==    by 0x4026C2: main (principal.cpp:573)
+> ==13576== 

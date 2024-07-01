@@ -1,0 +1,8 @@
+principal: principal.cpp:1137: void main_fechaTVisitaDia(TVisitaDia): Assertion `visitaDia != NULL' failed.
+==13718== 12 bytes in 1 blocks are definitely lost in loss record 1 of 4
+==13718==    at 0x4842F95: operator new(unsigned long) (vg_replace_malloc.c:483)
+==13718==    by 0x406029: crearTFecha(unsigned int, unsigned int, unsigned int) (fecha.cpp:10)
+==13718==    by 0x40277C: leerFecha(rep_fecha*&) (principal.cpp:594)
+==13718==    by 0x403D02: main_crearVisitaDia(rep_visitadia*&) (principal.cpp:1067)
+==13718==    by 0x401B5A: main (principal.cpp:393)
+==13718== 

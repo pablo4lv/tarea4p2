@@ -1,0 +1,31 @@
+==13434== Invalid read of size 4
+==13434==    at 0x40634B: imprimirTFecha(rep_fecha*) (fecha.cpp:95)
+==13434==    by 0x404757: main_fechaInicioTExposicion(rep_exposicion*) (principal.cpp:1325)
+==13434==    by 0x402006: main (principal.cpp:461)
+==13434==  Address 0x8 is not stack'd, malloc'd or (recently) free'd
+==13434== 
+==13434== 
+==13434== Process terminating with default action of signal 11 (SIGSEGV)
+==13434==  Access not within mapped region at address 0x8
+==13434==    at 0x40634B: imprimirTFecha(rep_fecha*) (fecha.cpp:95)
+==13434==    by 0x404757: main_fechaInicioTExposicion(rep_exposicion*) (principal.cpp:1325)
+==13434==    by 0x402006: main (principal.cpp:461)
+==13434==  If you believe this happened as a result of a stack
+==13434==  overflow in your program's main thread (unlikely but
+==13434==  possible), you can try to increase the size of the
+==13434==  main thread stack using the --main-stacksize= flag.
+==13434==  The main thread stack size used in this run was 8388608.
+==13434== 12 bytes in 1 blocks are definitely lost in loss record 1 of 5
+==13434==    at 0x4842F95: operator new(unsigned long) (vg_replace_malloc.c:483)
+==13434==    by 0x406029: crearTFecha(unsigned int, unsigned int, unsigned int) (fecha.cpp:10)
+==13434==    by 0x40277C: leerFecha(rep_fecha*&) (principal.cpp:594)
+==13434==    by 0x40455F: main_crearExposicion(rep_exposicion*&) (principal.cpp:1276)
+==13434==    by 0x401F39: main (principal.cpp:451)
+==13434== 
+==13434== 12 bytes in 1 blocks are definitely lost in loss record 2 of 5
+==13434==    at 0x4842F95: operator new(unsigned long) (vg_replace_malloc.c:483)
+==13434==    by 0x406029: crearTFecha(unsigned int, unsigned int, unsigned int) (fecha.cpp:10)
+==13434==    by 0x40277C: leerFecha(rep_fecha*&) (principal.cpp:594)
+==13434==    by 0x40456B: main_crearExposicion(rep_exposicion*&) (principal.cpp:1279)
+==13434==    by 0x401F39: main (principal.cpp:451)
+==13434== 

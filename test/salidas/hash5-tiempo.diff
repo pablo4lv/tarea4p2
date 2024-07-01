@@ -1,0 +1,13 @@
+4a5,16
+> ==13640== 12 bytes in 1 blocks are definitely lost in loss record 1 of 2
+> ==13640==    at 0x4842F95: operator new(unsigned long) (vg_replace_malloc.c:483)
+> ==13640==    by 0x406029: crearTFecha(unsigned int, unsigned int, unsigned int) (fecha.cpp:10)
+> ==13640==    by 0x4058B8: main_testTiempoHashVisitaDia() (principal.cpp:1771)
+> ==13640==    by 0x4026E1: main (principal.cpp:575)
+> ==13640== 
+> ==13640== 1,199,988 bytes in 99,999 blocks are definitely lost in loss record 2 of 2
+> ==13640==    at 0x4842F95: operator new(unsigned long) (vg_replace_malloc.c:483)
+> ==13640==    by 0x406258: copiarTFecha(rep_fecha*) (fecha.cpp:71)
+> ==13640==    by 0x40590A: main_testTiempoHashVisitaDia() (principal.cpp:1777)
+> ==13640==    by 0x4026E1: main (principal.cpp:575)
+> ==13640== 

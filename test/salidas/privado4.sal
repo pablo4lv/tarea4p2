@@ -1,0 +1,8 @@
+principal: principal.cpp:1580: void main_obtenerVisitaDiaTGaleria(TGaleria): Assertion `galeria != NULL' failed.
+==13746== 12 bytes in 1 blocks are definitely lost in loss record 1 of 4
+==13746==    at 0x4842F95: operator new(unsigned long) (vg_replace_malloc.c:483)
+==13746==    by 0x406029: crearTFecha(unsigned int, unsigned int, unsigned int) (fecha.cpp:10)
+==13746==    by 0x40277C: leerFecha(rep_fecha*&) (principal.cpp:594)
+==13746==    by 0x404D91: main_crearGaleria(rep_galeria*&) (principal.cpp:1507)
+==13746==    by 0x40227B: main (principal.cpp:501)
+==13746== 

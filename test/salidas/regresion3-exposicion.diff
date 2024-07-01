@@ -1,0 +1,61 @@
+1,28c1,31
+< Bienvenido al programa principal de ArteProg. Por favor ingrese su comando:
+< 1> Exposicion creada con exito.
+< 2> Piezas agregadas a la exposicion de forma exitosa.
+< 3> Exposicion #1 del 1/1/2002 al 1/6/2002
+< Piezas: 0 1 2 3 4 10 43 49 
+< 4> Piezas agregadas a la exposicion de forma exitosa.
+< 5> Exposicion #1 del 1/1/2002 al 1/6/2002
+< Piezas: 0 1 2 3 4 5 6 7 8 9 10 17 24 43 49 
+< 6> La pieza de id 0 pertenece a la exposicion.
+< 7> La pieza de id 1 pertenece a la exposicion.
+< 8> La pieza de id 6 pertenece a la exposicion.
+< 9> La pieza de id 9 pertenece a la exposicion.
+< 10> La pieza de id 10 pertenece a la exposicion.
+< 11> La pieza de id 100 NO pertenece a la exposicion.
+< 12> El id de la exposicion es: 1.
+< 13> La fecha inicio de la exposicion es: 1/1/2002
+< 14> La fecha fin de la exposicion es: 1/6/2002
+< 15> Las exposiciones NO son compatibles.
+< 16> Las exposiciones NO son compatibles.
+< 17> Las exposiciones NO son compatibles.
+< 18> Las exposiciones NO son compatibles.
+< 19> Las exposiciones NO son compatibles.
+< 20> Las exposiciones NO son compatibles.
+< 21> Las exposiciones son compatibles.
+< 22> Las exposiciones son compatibles.
+< 23> Las exposiciones son compatibles.
+< 24> Exposicion liberada con exito.
+< 25> Fin.
+---
+> ==13434== Invalid read of size 4
+> ==13434==    at 0x40634B: imprimirTFecha(rep_fecha*) (fecha.cpp:95)
+> ==13434==    by 0x404757: main_fechaInicioTExposicion(rep_exposicion*) (principal.cpp:1325)
+> ==13434==    by 0x402006: main (principal.cpp:461)
+> ==13434==  Address 0x8 is not stack'd, malloc'd or (recently) free'd
+> ==13434== 
+> ==13434== 
+> ==13434== Process terminating with default action of signal 11 (SIGSEGV)
+> ==13434==  Access not within mapped region at address 0x8
+> ==13434==    at 0x40634B: imprimirTFecha(rep_fecha*) (fecha.cpp:95)
+> ==13434==    by 0x404757: main_fechaInicioTExposicion(rep_exposicion*) (principal.cpp:1325)
+> ==13434==    by 0x402006: main (principal.cpp:461)
+> ==13434==  If you believe this happened as a result of a stack
+> ==13434==  overflow in your program's main thread (unlikely but
+> ==13434==  possible), you can try to increase the size of the
+> ==13434==  main thread stack using the --main-stacksize= flag.
+> ==13434==  The main thread stack size used in this run was 8388608.
+> ==13434== 12 bytes in 1 blocks are definitely lost in loss record 1 of 5
+> ==13434==    at 0x4842F95: operator new(unsigned long) (vg_replace_malloc.c:483)
+> ==13434==    by 0x406029: crearTFecha(unsigned int, unsigned int, unsigned int) (fecha.cpp:10)
+> ==13434==    by 0x40277C: leerFecha(rep_fecha*&) (principal.cpp:594)
+> ==13434==    by 0x40455F: main_crearExposicion(rep_exposicion*&) (principal.cpp:1276)
+> ==13434==    by 0x401F39: main (principal.cpp:451)
+> ==13434== 
+> ==13434== 12 bytes in 1 blocks are definitely lost in loss record 2 of 5
+> ==13434==    at 0x4842F95: operator new(unsigned long) (vg_replace_malloc.c:483)
+> ==13434==    by 0x406029: crearTFecha(unsigned int, unsigned int, unsigned int) (fecha.cpp:10)
+> ==13434==    by 0x40277C: leerFecha(rep_fecha*&) (principal.cpp:594)
+> ==13434==    by 0x40456B: main_crearExposicion(rep_exposicion*&) (principal.cpp:1279)
+> ==13434==    by 0x401F39: main (principal.cpp:451)
+> ==13434== 

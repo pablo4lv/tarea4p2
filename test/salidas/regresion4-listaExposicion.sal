@@ -1,0 +1,15 @@
+principal: principal.cpp:1388: void main_agregarAListaExposiciones(rep_listaexposiciones*&, rep_exposicion*&): Assertion `expo != NULL' failed.
+==13448== 12 bytes in 1 blocks are definitely lost in loss record 1 of 5
+==13448==    at 0x4842F95: operator new(unsigned long) (vg_replace_malloc.c:483)
+==13448==    by 0x406029: crearTFecha(unsigned int, unsigned int, unsigned int) (fecha.cpp:10)
+==13448==    by 0x40277C: leerFecha(rep_fecha*&) (principal.cpp:594)
+==13448==    by 0x40455F: main_crearExposicion(rep_exposicion*&) (principal.cpp:1276)
+==13448==    by 0x401F39: main (principal.cpp:451)
+==13448== 
+==13448== 12 bytes in 1 blocks are definitely lost in loss record 2 of 5
+==13448==    at 0x4842F95: operator new(unsigned long) (vg_replace_malloc.c:483)
+==13448==    by 0x406029: crearTFecha(unsigned int, unsigned int, unsigned int) (fecha.cpp:10)
+==13448==    by 0x40277C: leerFecha(rep_fecha*&) (principal.cpp:594)
+==13448==    by 0x40456B: main_crearExposicion(rep_exposicion*&) (principal.cpp:1279)
+==13448==    by 0x401F39: main (principal.cpp:451)
+==13448== 
